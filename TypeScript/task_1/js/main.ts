@@ -1,22 +1,39 @@
-// 1. Définir l’interface Teacher
+/* task_1/js/main.ts */
+
+/* Interface Teacher */
 interface Teacher {
-  readonly firstName: string;  // ne peut être défini qu’à l’initialisation
-  readonly lastName: string;   // idem
+  readonly firstName: string;     // ne peut pas être modifié après initialisation
+  readonly lastName: string;      // idem
   fullTimeEmployee: boolean;
-  yearsOfExperience?: number;  // optionnel
+  yearsOfExperience?: number;     // optionnel
   location: string;
-  [key: string]: any;          // permet d’ajouter d’autres propriétés
+  [key: string]: any;             // permet d’ajouter d’autres propriétés dynamiques
 }
 
-// 2. Exemple d’objet Teacher
+/* Exemple : Teacher */
 const teacher3: Teacher = {
-  firstName: "John",
-  lastName: "Doe",
+  firstName: 'John',
+  lastName: 'Doe',
   fullTimeEmployee: false,
-  location: "London",
-  contract: false, // attribut supplémentaire
+  location: 'London',
+  contract: false,
 };
 
-// 3. Affichage
 console.log(teacher3);
+
+/* Interface Directors */
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+/* Exemple : Director */
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  fullTimeEmployee: true,
+  location: 'London',
+  numberOfReports: 17,
+};
+
+console.log(director1);
 
